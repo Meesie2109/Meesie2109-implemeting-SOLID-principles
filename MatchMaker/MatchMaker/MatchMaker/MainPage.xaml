@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"    
+             xmlns:local="clr-namespace:MatchMaker"
+             x:Class="MatchMaker.MainPage">
+    <StackLayout>
+        <Grid Padding="5">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="Red"
+                          Offset="0.1" />
+                    <GradientStop Color="White"
+                          Offset="1.0" />
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Label Padding="50" Text="MatchMaker" HorizontalOptions="Start" VerticalOptions="Center" FontSize="Title" TextColor="White"></Label>
+            <Image x:Name="btn_Settings" HorizontalOptions="EndAndExpand" Source="{local:ImageResource Source='MatchMaker.Images.gear.png'}" WidthRequest="100">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="btn_Settings_Clicked" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+        <StackLayout Orientation="Vertical" Spacing="20">
+            <Label Text="Name 1" HorizontalTextAlignment="Start" Padding="20,10,0,0" FontSize="Large" FontAttributes="Bold"></Label>
+            <Entry x:Name="Name1" x:DataType="x:String" Placeholder="Enter name here..."></Entry>
+
+            <Label Text="Name 2" HorizontalTextAlignment="Start" Padding="20,10,0,0" FontSize="Large" FontAttributes="Bold"></Label>
+            <Entry x:Name="Name2" x:DataType="x:String" Placeholder="Enter name here..."></Entry>
+
+
+            <Button Text="Calculate!" BackgroundColor="Red" Clicked="btnCalculate_OnClick" HorizontalOptions="CenterAndExpand" TextColor="White" Margin="10,10,0,0"></Button>
+            <ProgressBar IsVisible="false" x:Name="Progress" ProgressColor="Red"></ProgressBar>
+            <Label VerticalOptions="Center" HorizontalOptions="Center" x:Name="ResultLabel" FontSize="Title" TextColor="Red" IsVisible="false" Text="" HorizontalTextAlignment="Center"></Label>
+        </StackLayout>
+    
+    <StackLayout  Orientation="Horizontal" x:Name="Heart" HeightRequest="100" WidthRequest="100" IsVisible="false">
+            <Image VerticalOptions="Center" HorizontalOptions="Center" x:Name="HeartImage" Aspect="AspectFill" Source="{local:ImageResource Source='MatchMaker.Images.heart.png'}" />
+            
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>

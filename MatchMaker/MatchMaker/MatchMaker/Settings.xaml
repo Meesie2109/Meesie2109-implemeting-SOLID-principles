@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MatchMaker.Settings">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Settings" FontSize="Large" Padding="20"></Label>
+            <StackLayout BackgroundColor="LightGray">
+            <Label Text="Calculator Type" FontSize="Medium" Margin="25, 0,0 ,0"></Label>
+            <Picker x:Name="CalculatorSetting" Title="Select your calculator type..." SelectedIndexChanged="CalculatorSetting_SelectedIndexChanged" Margin="20, 0, 0,0">
+                <Picker.ItemsSource>
+                   <x:Array Type="{x:Type x:String}">
+                        <x:String>Chinese</x:String>
+                        <x:String>Default</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
