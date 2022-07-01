@@ -3,6 +3,8 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using MatchMaker.Abstract;
+using MatchMaker.Concrete;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -10,9 +12,11 @@ namespace MatchMaker
 {
     public partial class MainPage : ContentPage
     {
-        public MainPage()
+        private IASCIICalculator _asciiCalculator { get; set; }
+
+        public MainPage(IASCIICalculator asciicale)
         {
-            InitializeComponent();
+            _asciiCalculator = asciicale;
         }
 
         private static readonly string vowels = "aeiouy";
@@ -22,6 +26,8 @@ namespace MatchMaker
 
         private async void btnCalculate_OnClick(object sender, EventArgs e)
         {
+            
+
             Entry name1 = (Entry)this.FindByName("Name1");
             Entry name2 = (Entry)this.FindByName("Name2");
             Label resultLabel = (Label)this.FindByName("ResultLabel");
@@ -57,10 +63,10 @@ namespace MatchMaker
             resultLabel.IsVisible = true;
         }
 
-        private static int CalculateMatchDefault(string name, string name2)
+        private int CalculateMatchDefault(string name, string name2)
         {
-            int score1 = CalculateASCIIScore(name);
-            int score2 = CalculateASCIIScore(name2);
+            int score1 = _asciiCalculator.CalculateASCII(name);
+            int score2 = _asciiCalculator.CalculateASCII(name2);
 
             int diff = Math.Abs(score1 - score2);
             int result = 100 - diff;

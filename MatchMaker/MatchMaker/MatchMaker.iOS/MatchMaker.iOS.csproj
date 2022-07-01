@@ -125,11 +125,14 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2337" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.1" />
+    <PackageReference Include="Nancy">
+      <Version>2.0.0</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\MatchMaker\MatchMaker.csproj">
-      <Project>{E0808714-0AFA-46F3-A6CA-A86D8CA39A25}</Project>
+      <Project>{44D3BA0C-A66A-42D2-8A05-8BBB099854AD}</Project>
       <Name>MatchMaker</Name>
     </ProjectReference>
   </ItemGroup>
